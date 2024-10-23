@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="C:\Users\Wanwan\Desktop\Noël\favicon.png">
+    <title>Liste de Noël</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            overflow: hidden; /* Empêche le défilement dû à la neige */
+        }
+        h1 {
+            color: #ecf0f1;
+            margin-bottom: 20px;
+        }
+        /* Style pour le conteneur de la liste */
+        #list-container {
+            background-color: #b30000; /* Fond rouge identique au formulaire */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative; /* Pour la neige */
+            z-index: 1; /* Assure que la liste est au-dessus de la neige */
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            text-align: left;
+            margin: 0;
+        }
+        li {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        /* Styles pour la neige */
+        .snow {
+            position: absolute;
+            top: -10%;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .flake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+
+<h1>🎄 Ma Liste de Noël 🎄</h1>
+
+<div id="list-container">
+    <ul>
+        <li>Un abonnement à un service de streaming</li>
+        <li>Un joli pull</li>
+        <li>Des bougies parfumées</li>
+        <li>Un livre</li>
+        <li>Un puzzle</li>
+    </ul>
+</div>
+
+<div class="snow" id="snow"></div> <!-- Conteneur de la neige -->
+
+<script>
+    // Fonction pour créer des flocons de neige
+    function createSnowFlake() {
+        const snowFlake = document.createElement('div');
+        snowFlake.classList.add('flake');
+        const size = Math.random() * 5 + 5; // Taille entre 5px et 10px
+        snowFlake.style.width = size + 'px';
+        snowFlake.style.height = size + 'px';
+        snowFlake.style.left = Math.random() * 100 + 'vw'; // Position horizontale aléatoire
+        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durée aléatoire entre 2s et 5s
+        snowFlake.style.animationDelay = Math.random() * 5 + 's'; // Délai aléatoire
+        document.getElementById('snow').appendChild(snowFlake);
+
+        // Supprimer le flocon après qu'il ait tombé
+        setTimeout(() => {
+            snowFlake.remove();
+        }, 5000); // Correspond à la durée maximale d'animation
+    }
+
+    // Créer des flocons de neige à intervalle régulier
+    setInterval(createSnowFlake, 300); // Crée un flocon toutes les 300ms
+</script>
+
+</body>
+</html>
