@@ -13,7 +13,7 @@
             padding: 20px;
             text-align: center;
             margin: 0;
-            overflow: hidden; /* Empêche le défilement dû à la neige */
+            overflow: hidden;
         }
         h1 {
             color: #ecf0f1;
@@ -60,7 +60,6 @@
             background-color: #b30000;
             border-color: #ffffff;
         }
-        /* Styles pour la neige */
         .snow {
             position: absolute;
             top: -10%;
@@ -88,35 +87,33 @@
 <p>Réponds juste aux questions suivantes et tu auras le droit d'accéder à ma liste 👍 :</p>
 
 <form id="quiz">
-    <p>1. Je suis né(e) quel jour (jour/mois/année) ?</p>
+    <p>1. Je suis né quel jour (jour/mois/année) ?</p>
     <input type="text" id="answer1" required>
     
-    <p>2. Quel est mon Pokémon préféré ?</p>
+    <p>2. Quel est mon Pokémon préféré ? Indice : "Je suis un petit être, jaune comme le soleil ⚡"</p>
     <input type="text" id="answer2" required>
     
-    <p>3. Quelle est actuellement ma figurine qui coûte le plus cher ?</p>
+    <p>3. Quelle est actuellement ma figurine qui coûte le plus cher ? Indice : "Mon pouvoir s'éveille quand je m'endors ⚡"</p>
     <input type="text" id="answer3" required>
     
-    <p>4. Quel est mon animal mythologique préféré ?</p>
+    <p>4. Quel est mon animal mythologique préféré ? Indice : "Dans le feu, je m'élève, ma lumière s'étend 🔥"</p>
     <input type="text" id="answer4" required>
 
-    <p>5. Quel est le premier jeu Pokémon auquel j'ai joué ?</p>
+    <p>5. Quel est le premier jeu Pokémon auquel j'ai joué ? Indice : "Avec des légendes anciennes, je fais éclore ⏲️"</p>
     <input type="text" id="answer5" required>
     
-    <p>6. Quel est mon film d'animation préféré ?</p>
+    <p>6. Quel est mon film d'animation préféré ? Indice : Dans le silence, une voix se cherche. Un jeune cœur brisé, dans la douleur il s'immerge 💔"?</p>
     <input type="text" id="answer6" required>
 
     <button type="submit">Envoyer</button>
 </form>
 
-<div class="snow" id="snow"></div> <!-- Conteneur de la neige -->
+<div class="snow" id="snow"></div> 
 
 <script>
-    // Fonction de validation pour vérifier les réponses du quiz
     document.getElementById('quiz').addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Réponses correctes attendues
         const expectedAnswers = [
             '16/01/2005',
             'pikachu',
@@ -126,7 +123,6 @@
             'silent voice'
         ];
 
-        // Récupération des réponses utilisateur
         const userAnswers = [
             document.getElementById('answer1').value.trim().toLowerCase(),
             document.getElementById('answer2').value.trim().toLowerCase(),
@@ -136,10 +132,8 @@
             document.getElementById('answer6').value.trim().toLowerCase(),
         ];
 
-        // Vérifier si toutes les réponses sont correctes
         const allCorrect = userAnswers.every((answer, index) => answer === expectedAnswers[index]);
 
-        // Si toutes les réponses sont correctes, redirection vers la liste de Noël
         if (allCorrect) {
             window.location.href = 'liste_noel.html'; // Redirection vers la page
         } else {
@@ -147,26 +141,23 @@
         }
     });
 
-    // Fonction pour créer des flocons de neige
     function createSnowFlake() {
         const snowFlake = document.createElement('div');
         snowFlake.classList.add('flake');
-        const size = Math.random() * 5 + 5; // Taille entre 5px et 10px
+        const size = Math.random() * 5 + 5;
         snowFlake.style.width = size + 'px';
         snowFlake.style.height = size + 'px';
-        snowFlake.style.left = Math.random() * 100 + 'vw'; // Position horizontale aléatoire
-        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durée aléatoire entre 2s et 5s
-        snowFlake.style.animationDelay = Math.random() * 5 + 's'; // Délai aléatoire
+        snowFlake.style.left = Math.random() * 100 + 'vw';
+        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's';
+        snowFlake.style.animationDelay = Math.random() * 5 + 's';
         document.getElementById('snow').appendChild(snowFlake);
 
-        // Supprimer le flocon après qu'il ait tombé
         setTimeout(() => {
             snowFlake.remove();
-        }, 5000); // Correspond à la durée maximale d'animation
+        }, 5000);
     }
 
-    // Créer des flocons de neige à intervalle régulier
-    setInterval(createSnowFlake, 300); // Crée un flocon toutes les 300ms
+    setInterval(createSnowFlake, 300);
 </script>
 
 </body>

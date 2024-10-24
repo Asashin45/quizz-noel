@@ -12,27 +12,25 @@
             color: #ffffff;
             text-align: center;
             margin: 0;
-            overflow: hidden; /* Empêche le défilement dû à la neige */
+            overflow: hidden;
             position: relative;
         }
         h1 {
             color: #ecf0f1;
             margin-top: 50px;
-            font-size: 2.5em; /* Taille du titre */
+            font-size: 2.5em;
         }
         p {
             font-size: 1.2em;
             margin: 20px 0;
-            line-height: 1.5; /* Améliore la lisibilité */
+            line-height: 1.5;
         }
-        /* Conteneur pour l'image et le bouton */
         .container {
-            display: flex; /* Utilise Flexbox pour l'alignement */
-            justify-content: center; /* Centre les éléments horizontalement */
-            align-items: center; /* Centre les éléments verticalement */
-            margin: 30px 0; /* Espacement autour de la container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
         }
-        /* Style du bouton pour accéder au quizz */
         .btn {
             background-color: #ff0000;
             color: white;
@@ -42,24 +40,22 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            margin-left: 20px; /* Ajout d'un espace à gauche du bouton */
+            margin-left: 20px;
             transition: background-color 0.3s, border-color 0.3s;
         }
         .btn:hover {
             background-color: #b30000;
             border-color: #ffffff;
         }
-        /* Ajout d'un style pour l'image */
         .image-container {
-            margin-right: 20px; /* Espacement à droite de l'image */
+            margin-right: 20px;
         }
         img {
-            max-width: 50%; /* Réduction de la largeur de l'image à 30% */
+            max-width: 50%;
             height: auto;
-            border-radius: 10px; /* Arrondit les coins de l'image */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre pour un effet 3D */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
-        /* Styles pour la neige */
         .snow {
             position: absolute;
             top: -10%;
@@ -84,42 +80,34 @@
 <body>
 
 <h1>🎅 Bienvenue sur la page de Noël 🎅</h1>
-<p>Es-tu prêt(e) à relever le défi du quizz de Noël ? Réponds aux questions et découvre ma liste de Noël pleine de surprises !</p>
+<p>Es-tu prêt(e) à relever le défi du quizz de Noël ? Réponds aux questions et découvre ma liste de Noël pleine de composents !</p>
 
-<!-- Conteneur pour l'image et le bouton -->
 <div class="container">
-    <!-- Ajout d'une image festive -->
     <div class="image-container">
-        <img src="favicon.png" alt="Image de Noël"> <!-- Remplacez par l'URL de votre image -->
+        <img src="favicon.png" alt="Image de Noël">
     </div>
-
-    <!-- Lien vers la page du quizz -->
     <a href="quizz_noel.html" class="btn">Commencer le quizz 🎄</a>
 </div>
 
-<div class="snow" id="snow"></div> <!-- Conteneur de la neige -->
+<div class="snow" id="snow"></div>
 
 <script>
-    // Fonction pour créer des flocons de neige
     function createSnowFlake() {
         const snowFlake = document.createElement('div');
         snowFlake.classList.add('flake');
-        const size = Math.random() * 5 + 5; // Taille entre 5px et 10px
+        const size = Math.random() * 5 + 5;
         snowFlake.style.width = size + 'px';
         snowFlake.style.height = size + 'px';
-        snowFlake.style.left = Math.random() * 100 + 'vw'; // Position horizontale aléatoire
-        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durée aléatoire entre 2s et 5s
-        snowFlake.style.animationDelay = Math.random() * 5 + 's'; // Délai aléatoire
+        snowFlake.style.left = Math.random() * 100 + 'vw';
+        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's';
+        snowFlake.style.animationDelay = Math.random() * 5 + 's';
         document.getElementById('snow').appendChild(snowFlake);
 
-        // Supprimer le flocon après qu'il ait tombé
         setTimeout(() => {
             snowFlake.remove();
-        }, 5000); // Correspond à la durée maximale d'animation
+        }, 5000);
     }
-
-    // Créer des flocons de neige à intervalle régulier
-    setInterval(createSnowFlake, 300); // Crée un flocon toutes les 300ms
+    setInterval(createSnowFlake, 300);
 </script>
 
 </body>

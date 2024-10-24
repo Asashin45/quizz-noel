@@ -13,22 +13,21 @@
             padding: 20px;
             text-align: center;
             margin: 0;
-            overflow: hidden; /* Empêche le défilement dû à la neige */
+            overflow: hidden;
         }
         h1 {
             color: #ecf0f1;
             margin-bottom: 20px;
         }
-        /* Style pour le conteneur de la liste */
         #list-container {
-            background-color: #b30000; /* Fond rouge identique au formulaire */
+            background-color: #b30000;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             padding: 20px;
             margin: 20px auto;
             max-width: 600px;
-            position: relative; /* Pour la neige */
-            z-index: 1; /* Assure que la liste est au-dessus de la neige */
+            position: relative;
+            z-index: 1;
         }
         ul {
             list-style-type: none;
@@ -51,7 +50,6 @@
         a:hover {
             text-decoration: underline;
         }
-        /* Style pour les étoiles */
         .stars {
             display: inline-block;
             color: gold;
@@ -64,7 +62,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* Styles pour la neige */
         .snow {
             position: absolute;
             top: -10%;
@@ -84,19 +81,16 @@
             0% { transform: translateY(0); }
             100% { transform: translateY(100vh); }
         }
-        /* Nouveau style pour le texte d'explication */
         .preference-text {
-            margin-bottom: 15px; /* Espace entre le texte d'explication et la liste */
+            margin-bottom: 15px;
             font-size: 1.1em;
-            color: #ecf0f1; /* Couleur du texte d'explication */
+            color: #ecf0f1;
         }
     </style>
 </head>
 <body>
 
 <h1>🎄 Ma Liste de Noël 🎄</h1>
-
-<!-- Texte d'explication sur le système de notation -->
 <p class="preference-text">Les étoiles indiquent mes préférences pour chaque composent:</p>
 
 <div id="list-container">
@@ -112,29 +106,25 @@
     </ul>
 </div>
 
-<div class="snow" id="snow"></div> <!-- Conteneur de la neige -->
-
+<div class="snow" id="snow"></div>
 <script>
-    // Fonction pour créer des flocons de neige
     function createSnowFlake() {
         const snowFlake = document.createElement('div');
         snowFlake.classList.add('flake');
-        const size = Math.random() * 5 + 5; // Taille entre 5px et 10px
+        const size = Math.random() * 5 + 5;
         snowFlake.style.width = size + 'px';
         snowFlake.style.height = size + 'px';
-        snowFlake.style.left = Math.random() * 100 + 'vw'; // Position horizontale aléatoire
-        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durée aléatoire entre 2s et 5s
-        snowFlake.style.animationDelay = Math.random() * 5 + 's'; // Délai aléatoire
+        snowFlake.style.left = Math.random() * 100 + 'vw';
+        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's';
+        snowFlake.style.animationDelay = Math.random() * 5 + 's';
         document.getElementById('snow').appendChild(snowFlake);
 
-        // Supprimer le flocon après qu'il ait tombé
         setTimeout(() => {
             snowFlake.remove();
-        }, 5000); // Correspond à la durée maximale d'animation
+        }, 5000);
     }
 
-    // Créer des flocons de neige à intervalle régulier
-    setInterval(createSnowFlake, 300); // Crée un flocon toutes les 300ms
+    setInterval(createSnowFlake, 300);
 </script>
 
 </body>
