@@ -18,10 +18,12 @@
         h1 {
             color: #ecf0f1;
             margin-top: 50px;
+            font-size: 2.5em; /* Taille du titre */
         }
         p {
             font-size: 1.2em;
             margin: 20px 0;
+            line-height: 1.5; /* Améliore la lisibilité */
         }
         /* Style du bouton pour accéder au quizz */
         .btn {
@@ -35,10 +37,21 @@
             text-decoration: none;
             display: inline-block;
             transition: background-color 0.3s, border-color 0.3s;
+            margin-top: 20px; /* Ajout d'un espace au-dessus du bouton */
         }
         .btn:hover {
             background-color: #b30000;
             border-color: #ffffff;
+        }
+        /* Ajout d'un style pour l'image */
+        .image-container {
+            margin: 30px 0; /* Espacement autour de l'image */
+        }
+        img {
+            max-width: 80%; /* Limite la largeur de l'image */
+            height: auto;
+            border-radius: 10px; /* Arrondit les coins de l'image */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre pour un effet 3D */
         }
         /* Styles pour la neige */
         .snow {
@@ -65,7 +78,12 @@
 <body>
 
 <h1>🎅 Bienvenue sur la page de Noël 🎅</h1>
-<p>Es-tu prêt(e) à relever le défi du quizz de Noël ?</p>
+<p>Es-tu prêt(e) à relever le défi du quizz de Noël ? Réponds aux questions et découvre ma liste de Noël pleine de surprises !</p>
+
+<!-- Ajout d'une image festive -->
+<div class="image-container">
+    <img src="https://example.com/your-christmas-image.jpg" alt="Image de Noël"> <!-- Remplacez par l'URL de votre image -->
+</div>
 
 <!-- Lien vers la page du quizz -->
 <a href="quiz_noel.html" class="btn">Commencer le quizz 🎄</a>
