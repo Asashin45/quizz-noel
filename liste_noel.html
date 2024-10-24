@@ -31,14 +31,17 @@
             z-index: 1; /* Assure que la liste est au-dessus de la neige */
         }
         ul {
-            list-style-type: disc;
-            padding-left: 20px;
+            list-style-type: none;
+            padding-left: 0;
             text-align: left;
             margin: 0;
         }
         li {
             font-size: 1.2em;
             margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         a {
             color: #ffffff;
@@ -47,6 +50,19 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        /* Style pour les étoiles */
+        .stars {
+            display: inline-block;
+            color: gold;
+            font-size: 1.2em;
+        }
+        .stars::before {
+            content: "★★★★★";
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, gold calc(var(--rating) / 5 * 100%), #444 calc(var(--rating) / 5 * 100%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         /* Styles pour la neige */
         .snow {
@@ -76,15 +92,15 @@
 
 <div id="list-container">
     <ul>
-        <li><a href="https://www.amazon.de/-/en/Corsair-Vengeance-6000MHz-Optimised-AMD-DDR5/dp/B0BFN8QTWM?crid=1MDNJEKPGS41K&keywords=32Go+DDR5&qid=1683829809&s=computers&sprefix=32go+ddr5,computers,117&sr=1-5&linkCode=sl1&tag=fnkhardware05-21&linkId=9c63972de7069cc4732053e4ff056dff&language=en_GB&ref_=as_li_ss_tl" target="_blank">RAM - Corsair Vengeance 32Go DDR5</a></li>
-        <li><a href="https://www.ldlc.com/fiche/PB00546345.html" target="_blank">Processeur - AMD Ryzen 7 7800X3D</a></li>
-        <li><a href="https://www.ldlc.com/fiche/PB00520541.html" target="_blank">Carte mère - MSI MPG X670E Carbon</a></li>
-        <li><a href="https://www.amazon.fr/Crucial-Plus-PCIe-Gen4-interne/dp/B0BYW8FLKN/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&crid=14QFCO1X8ST4F&dib=eyJ2IjoiMSJ9.1R4yAExVgpUf7T0TCNffGyaWmw1ZMhUpKGaaO9zkGsKpd5GNy2ZKSOFs6IvQEcnDwEVqo4KNQe9UF57ujj4579N20RFjYLh9hnJ9ZhYHfYY7JodyB7-bpTKV8Y-Owv3hs93AEix68jY057x_toS9u2AZTCfpOV3gxqKOWzYgAQkgulnqwmZ-vJ5BvIgXBqWv5SkowqtA6zzLF9fuAINERdoMjpDcPsurV65_Sw-sAcAuU4q2CsahHEycaA7MXKfUDbYdiJsxaM8BMsScjrimpWApJyefIOmI4rU-Ic-MZ5s.jL0ifa1ilqQq4NZOnwksAxBaKt7NFh9zTzazE9jrjP8&dib_tag=se&keywords=crucial%2Bp3%2Bplus%2B2to&qid=1728323321&sprefix=crucial%2Bp3%2Bplus%2B2to%2Caps%2C139&sr=8-1&th=1" target="_blank">NVMe - Crucial P3 Plus 2To</a></li>
-        <li><a href="https://www.ldlc.com/fiche/PB00562324.html" target="_blank">Alimentation - Corsair RM1000x Shift</a></li>
-        <li>Carte graphique - Radeon RX 7900 XT ou 7900 XTX</li>
-        <li><a href="https://www.amazon.fr/dp/B0B17CCHM9/ref=twister_B0DDLCLD6N?_encoding=UTF8&psc=1" target="_blank">Boitier - NZXT H5 Flow RGB</a></li>
-        <li><a href="https://www.amazon.fr/dp/B0BQJ6QL7L?smid=A1XYKNJRQMM3DF&tag=har0c-azz-48-21" target="_blank">Watercooling - NZXT Kraken 360 RGB</a></li>
-        <li><a href="https://www.amazon.fr/Corsair-H150i-Elite-Refroidisseur-Liquide/dp/B0BQWSP2ZP/ref=sr_1_2?__mk_fr_FR=ÅMÅŽÕÑ&crid=ED54YME1A2AL&dib=eyJ2IjoiMSJ9.Sk46tTR6YJLOuwpwKqZjrqXLAi1dGVEogr_mVz-bVSyiFUW-AsnUJc-cJ-5kuyQnJlJpdIERcaXdCB1hUA2ET3_YeHtzJzlpgZ5yxYOOY_9PRNm3uh5m7Y4kIRA2qVn6bpL-_cRWNnJB75NlC5Giy5cVK_3gG9keX9AFYYOWzBl0OGrHFHJdyQtwfJ_htJx5uf3lB0meVOAho-CHpMIns0o7F8moqmvz7dozbJmyIxHmCcT9M1ugentwLtrLsCTBkTGlQPuOWqc-3Ab_36cWLY5Bzbu-gXqT7xeL5N460HA.OHta1TIheG5vagrCzBWTfWs5ssf3ig7YNuCCPfVo1cA&dib_tag=se&keywords=Corsair+iCUE+H150i+ELITE+CAPELLIX+LCD+XT&qid=1729705753&s=computers&sprefix=corsair+icue+h150i+elite+capellix+lcd+xt%2Ccomputers%2C214&sr=1-2" target="_blank">Watercooling - Corsair iCUE H150i Elite Capellix LCD</a></li>
+        <li><a href="https://www.amazon.de/-/en/Corsair-Vengeance-6000MHz-Optimised-AMD-DDR5/dp/B0BFN8QTWM?crid=1MDNJEKPGS41K&keywords=32Go+DDR5&qid=1683829809&s=computers&sprefix=32go+ddr5,computers,117&sr=1-5&linkCode=sl1&tag=fnkhardware05-21&linkId=9c63972de7069cc4732053e4ff056dff&language=en_GB&ref_=as_li_ss_tl" target="_blank">RAM - Corsair Vengeance 32Go DDR5</a> <span class="stars" style="--rating: 4"></span></li>
+        <li><a href="https://www.ldlc.com/fiche/PB00546345.html" target="_blank">Processeur - AMD Ryzen 7 7800X3D</a> <span class="stars" style="--rating: 5"></span></li>
+        <li><a href="https://www.ldlc.com/fiche/PB00520541.html" target="_blank">Carte mère - MSI MPG X670E Carbon</a> <span class="stars" style="--rating: 3"></span></li>
+        <li><a href="https://www.amazon.fr/Crucial-Plus-PCIe-Gen4-interne/dp/B0BYW8FLKN/ref=sr_1_1?__mk_fr_FR=ÅMÅŽÕÑ&crid=14QFCO1X8ST4F&dib=eyJ2IjoiMSJ9.1R4yAExVgpUf7T0TCNffGyaWmw1ZMhUpKGaaO9zkGsKpd5GNy2ZKSOFs6IvQEcnDwEVqo4KNQe9UF57ujj4579N20RFjYLh9hnJ9ZhYHfYY7JodyB7-bpTKV8Y-Owv3hs93AEix68jY057x_toS9u2AZTCfpOV3gxqKOWzYgAQkgulnqwmZ-vJ5BvIgXBqWv5SkowqtA6zzLF9fuAINERdoMjpDcPsurV65_Sw-sAcAuU4q2CsahHEycaA7MXKfUDbYdiJsxaM8BMsScjrimpWApJyefIOmI4rU-Ic-MZ5s.jL0ifa1ilqQq4NZOnwksAxBaKt7NFh9zTzazE9jrjP8&dib_tag=se&keywords=crucial%2Bp3%2Bplus%2B2to&qid=1728323321&sprefix=crucial%2Bp3%2Bplus%2B2to%2Caps%2C139&sr=8-1&th=1" target="_blank">NVMe - Crucial P3 Plus 2To</a> <span class="stars" style="--rating: 5"></span></li>
+        <li><a href="https://www.ldlc.com/fiche/PB00562324.html" target="_blank">Alimentation - Corsair RM1000x Shift</a> <span class="stars" style="--rating: 4"></span></li>
+        <li>Carte graphique - Radeon RX 7900 XT ou 7900 XTX <span class="stars" style="--rating: 5"></span></li>
+        <li><a href="https://www.amazon.fr/dp/B0B17CCHM9/ref=twister_B0DDLCLD6N?_encoding=UTF8&psc=1" target="_blank">Boitier - NZXT H5 Flow RGB</a> <span class="stars" style="--rating: 3"></span></li>
+        <li><a href="https://www.amazon.fr/dp/B0BQJ6QL7L?smid=A1XYKNJRQMM3DF&tag=har0c-azz-48-21" target="_blank">Watercooling - NZXT Kraken 360 RGB</a> <span class="stars" style="--rating: 4"></span></li>
+        <li><a href="https://www.amazon.fr/Corsair-H150i-Elite-Refroidisseur-Liquide/dp/B0BQWSP2ZP/ref=sr_1_2?__mk_fr_FR=ÅMÅŽÕÑ&crid=ED54YME1A2AL&dib=eyJ2IjoiMSJ9.Sk46tTR6YJLOuwpwKqZjrqXLAi1dGVEogr_mVz-bVSyiFUW-AsnUJc-cJ-5kuyQnJlJpdIERcaXdCB1hUA2ET3_YeHtzJzlpgZ5yxYOOY_9PRNm3uh5m7Y4kIRA2qVn6bpL-_cRWNnJB75NlC5Giy5cVK_3gG9keX9AFYYOWzBl0OGrHFHJdyQtwfJ_htJx5uf3lB0meVOAho-CHpMIns0o7F8moqmvz7dozbJmyIxHmCcT9M1ugentwLtrLsCTBkTGlQPuOWqc-3Ab_36cWLY5Bzbu-gXqT7xeL5N460HA.OHta1TIheG5vagrCzBWTfWs5ssf3ig7YNuCCPfVo1cA&dib_tag=se&keywords=Corsair+iCUE+H150i+ELITE+CAPELLIX+LCD+XT&qid=1729705753&s=computers&sprefix=corsair+icue+h150i+elite+capellix+lcd+xt%2Ccomputers%2C214&sr=1-2" target="_blank">Watercooling - Corsair iCUE H150i</a> <span class="stars" style="--rating: 4"></span></li>
     </ul>
 </div>
 
