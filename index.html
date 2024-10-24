@@ -25,6 +25,13 @@
             margin: 20px 0;
             line-height: 1.5; /* Améliore la lisibilité */
         }
+        /* Conteneur pour l'image et le bouton */
+        .container {
+            display: flex; /* Utilise Flexbox pour l'alignement */
+            justify-content: center; /* Centre les éléments horizontalement */
+            align-items: center; /* Centre les éléments verticalement */
+            margin: 30px 0; /* Espacement autour de la container */
+        }
         /* Style du bouton pour accéder au quizz */
         .btn {
             background-color: #ff0000;
@@ -35,9 +42,8 @@
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
-            display: inline-block;
+            margin-left: 20px; /* Ajout d'un espace à gauche du bouton */
             transition: background-color 0.3s, border-color 0.3s;
-            margin-top: 20px; /* Ajout d'un espace au-dessus du bouton */
         }
         .btn:hover {
             background-color: #b30000;
@@ -45,10 +51,10 @@
         }
         /* Ajout d'un style pour l'image */
         .image-container {
-            margin: 30px 0; /* Espacement autour de l'image */
+            margin-right: 20px; /* Espacement à droite de l'image */
         }
         img {
-            max-width: 30%; /* Réduction de la largeur de l'image à 50% */
+            max-width: 30%; /* Réduction de la largeur de l'image à 30% */
             height: auto;
             border-radius: 10px; /* Arrondit les coins de l'image */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre pour un effet 3D */
@@ -80,13 +86,16 @@
 <h1>🎅 Bienvenue sur la page de Noël 🎅</h1>
 <p>Es-tu prêt(e) à relever le défi du quizz de Noël ? Réponds aux questions et découvre ma liste de Noël pleine de surprises !</p>
 
-<!-- Ajout d'une image festive -->
-<div class="image-container">
-    <img src="favicon.png" alt="Image de Noël"> <!-- Remplacez par l'URL de votre image -->
-</div>
+<!-- Conteneur pour l'image et le bouton -->
+<div class="container">
+    <!-- Ajout d'une image festive -->
+    <div class="image-container">
+        <img src="favicon.png" alt="Image de Noël"> <!-- Remplacez par l'URL de votre image -->
+    </div>
 
-<!-- Lien vers la page du quizz -->
-<a href="quiz_noel.html" class="btn">Commencer le quizz 🎄</a>
+    <!-- Lien vers la page du quizz -->
+    <a href="quiz_noel.html" class="btn">Commencer le quizz 🎄</a>
+</div>
 
 <div class="snow" id="snow"></div> <!-- Conteneur de la neige -->
 
