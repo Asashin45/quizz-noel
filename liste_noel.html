@@ -84,11 +84,20 @@
             0% { transform: translateY(0); }
             100% { transform: translateY(100vh); }
         }
+        /* Nouveau style pour le texte d'explication */
+        .preference-text {
+            margin-bottom: 15px; /* Espace entre le texte d'explication et la liste */
+            font-size: 1.1em;
+            color: #ecf0f1; /* Couleur du texte d'explication */
+        }
     </style>
 </head>
 <body>
 
 <h1>🎄 Ma Liste de Noël 🎄</h1>
+
+<!-- Texte d'explication sur le système de notation -->
+<p class="preference-text">Les étoiles indiquent mes préférences pour chaque article :</p>
 
 <div id="list-container">
     <ul>
