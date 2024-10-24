@@ -13,7 +13,7 @@
             padding: 20px;
             text-align: center;
             margin: 0;
-            overflow: hidden;
+            overflow: hidden; /* Empêche le défilement dû à la neige */
         }
         h1 {
             color: #ecf0f1;
@@ -109,6 +109,8 @@
     <button type="submit">Envoyer</button>
 </form>
 
+<div class="snow" id="snow"></div> <!-- Conteneur de la neige -->
+
 <script>
     // Fonction de validation pour vérifier les réponses du quiz
     document.getElementById('quiz').addEventListener('submit', function(event) {
@@ -144,6 +146,27 @@
             alert('Une ou plusieurs réponses sont incorrectes. Réessaie !');
         }
     });
+
+    // Fonction pour créer des flocons de neige
+    function createSnowFlake() {
+        const snowFlake = document.createElement('div');
+        snowFlake.classList.add('flake');
+        const size = Math.random() * 5 + 5; // Taille entre 5px et 10px
+        snowFlake.style.width = size + 'px';
+        snowFlake.style.height = size + 'px';
+        snowFlake.style.left = Math.random() * 100 + 'vw'; // Position horizontale aléatoire
+        snowFlake.style.animationDuration = Math.random() * 3 + 2 + 's'; // Durée aléatoire entre 2s et 5s
+        snowFlake.style.animationDelay = Math.random() * 5 + 's'; // Délai aléatoire
+        document.getElementById('snow').appendChild(snowFlake);
+
+        // Supprimer le flocon après qu'il ait tombé
+        setTimeout(() => {
+            snowFlake.remove();
+        }, 5000); // Correspond à la durée maximale d'animation
+    }
+
+    // Créer des flocons de neige à intervalle régulier
+    setInterval(createSnowFlake, 300); // Crée un flocon toutes les 300ms
 </script>
 
 </body>
