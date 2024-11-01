@@ -46,6 +46,15 @@
             border-color: #ecf0f1;
             outline: none;
         }
+        /* Styles pour les réponses correctes et incorrectes */
+        .correct {
+            background-color: #28a745; /* Vert pour correct */
+            color: white;
+        }
+        .incorrect {
+            background-color: #dc3545; /* Rouge pour incorrect */
+            color: white;
+        }
         button {
             background-color: #ff0000;
             color: white;
@@ -123,16 +132,28 @@
             'silent voice'
         ];
 
-        const userAnswers = [
-            document.getElementById('answer1').value.trim().toLowerCase(),
-            document.getElementById('answer2').value.trim().toLowerCase(),
-            document.getElementById('answer3').value.trim().toLowerCase(),
-            document.getElementById('answer4').value.trim().toLowerCase(),
-            document.getElementById('answer5').value.trim().toLowerCase(),
-            document.getElementById('answer6').value.trim().toLowerCase(),
+        const answerElements = [
+            document.getElementById('answer1'),
+            document.getElementById('answer2'),
+            document.getElementById('answer3'),
+            document.getElementById('answer4'),
+            document.getElementById('answer5'),
+            document.getElementById('answer6')
         ];
 
-        const allCorrect = userAnswers.every((answer, index) => answer === expectedAnswers[index]);
+        let allCorrect = true;
+
+        answerElements.forEach((input, index) => {
+            const userAnswer = input.value.trim().toLowerCase();
+            if (userAnswer === expectedAnswers[index]) {
+                input.classList.add('correct');
+                input.classList.remove('incorrect');
+            } else {
+                input.classList.add('incorrect');
+                input.classList.remove('correct');
+                allCorrect = false;
+            }
+        });
 
         if (allCorrect) {
             window.location.href = 'liste_noel.html'; // Redirection vers la page
