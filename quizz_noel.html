@@ -46,7 +46,6 @@
             border-color: #ecf0f1;
             outline: none;
         }
-        /* Styles pour les réponses correctes et incorrectes */
         .correct {
             background-color: #28a745; /* Vert pour correct */
             color: white;
@@ -144,13 +143,15 @@
         let allCorrect = true;
 
         answerElements.forEach((input, index) => {
+            // Réinitialise les styles
+            input.classList.remove('correct', 'incorrect');
             const userAnswer = input.value.trim().toLowerCase();
+            console.log(`Question ${index + 1}: Réponse utilisateur = "${userAnswer}", Réponse attendue = "${expectedAnswers[index]}"`);
+
             if (userAnswer === expectedAnswers[index]) {
                 input.classList.add('correct');
-                input.classList.remove('incorrect');
             } else {
                 input.classList.add('incorrect');
-                input.classList.remove('correct');
                 allCorrect = false;
             }
         });
