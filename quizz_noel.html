@@ -47,12 +47,10 @@
             outline: none;
         }
         .correct {
-            background-color: #28a745; /* Vert pour correct */
-            color: white;
+            color: #28a745; /* Texte vert pour correct */
         }
         .incorrect {
-            background-color: #dc3545; /* Rouge pour incorrect */
-            color: white;
+            color: #dc3545; /* Texte rouge pour incorrect */
         }
         button {
             background-color: #ff0000;
@@ -146,7 +144,6 @@
             // Réinitialise les styles
             input.classList.remove('correct', 'incorrect');
             const userAnswer = input.value.trim().toLowerCase();
-            console.log(`Question ${index + 1}: Réponse utilisateur = "${userAnswer}", Réponse attendue = "${expectedAnswers[index]}"`);
 
             if (userAnswer === expectedAnswers[index]) {
                 input.classList.add('correct');
